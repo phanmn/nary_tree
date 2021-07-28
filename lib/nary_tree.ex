@@ -248,7 +248,7 @@ defmodule NaryTree do
       iex> tree.nodes[tree.root].children   # leaf becomes root's child
       [leaf.id]
   """
-  @spec delete(NaryTree.t(), any()) :: :error | NaryTree.t()
+  @spec delete(NaryTree.t(), any()) :: NaryTree.t() | :error
   def delete(%__MODULE__{} = tree, %Node{id: id}), do: delete(tree, id)
   def delete(%__MODULE__{root: root}, id) when id == root, do: :error
   def delete(%__MODULE__{nodes: nodes} = tree, id) do
